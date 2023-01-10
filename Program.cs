@@ -18,12 +18,13 @@ do
         if (num1 < 1 || num1 > 100)
             {
                 kick++;
-                if (kick >= 3)
-                {
-                    break;
-                }
+            Console.WriteLine(kick);
+                //if (kick >= 3)
+                //{
+                //    break;
+                //}
             }
-    } while (num1 < 1 || num1 > 100 || kick > 3);
+    } while ((num1 < 1 || num1 > 100) && kick < 3);
     if(kick >= 3)
         {
             break;
