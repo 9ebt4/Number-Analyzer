@@ -1,7 +1,7 @@
 ﻿//Greeting to user
 Console.WriteLine("Hello and welcome to the number analyzer. What is your name?");
-string uName = Console.ReadLine();
-
+string rawUName = Console.ReadLine().ToLower().Trim();
+string uName = rawUName.Substring(0,1).ToUpper() + rawUName.Substring(1);
 //Start infinite loop
 bool loop = true;
 int kick = 0;
@@ -12,12 +12,16 @@ do
     do
     {
         Console.WriteLine(uName + ", would you please enter a number from 1 to 100?");
-        num1 = double.Parse(Console.ReadLine());
+        num1 = double.Parse(Console.ReadLine().Trim());
         Console.WriteLine(uName + ", you entered the number " + num1 + ".");
         // Kick user after 3 wrong answers.    
         if (num1 < 1 || num1 > 100)
             {
                 kick++;
+                if (kick >= 3)
+                {
+                    break;
+                }
             }
     } while (num1 < 1 || num1 > 100 || kick > 3);
     if(kick >= 3)
